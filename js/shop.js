@@ -83,15 +83,16 @@ function buy(id) {
             existingProduct.quantity += 1;
         } else {
             product.quantity = 1;
-            cart.push(product);
+            cart.push({...product, quantity: 1});
         }
     }
-    console.log(product)
+    console.log(cart)
 }
 
 // Exercise 2
 function cleanCart() {
     cart = []
+    console.log(cart)
 }
 
 // Exercise 3
