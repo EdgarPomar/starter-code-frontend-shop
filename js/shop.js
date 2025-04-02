@@ -76,25 +76,28 @@ let total = 0;
 
 // Exercise 1
 function buy(id) {
-    const product = products.find(p => p.id === id);
-    if (product) {
-        const existingProduct = cart.find(p => p.id === id);
-        if (existingProduct) {
-            existingProduct.quantity += 1;
-        } else {
-            product.quantity = 1;
-            cart.push({...product, quantity: 1});
+    const cartProduct = cart.find(p => p.id === id);
+    if (cartProduct) {
+        cartProduct.quantity++;
+    } else {
+        const product = products.find(p => p.id === id);
+        if (product) {
+            cart.push({ ...product, quantity: 1 });
         }
     }
-    console.log(cart)
+    document.getElementById("count_product").textContent = cart.length;
+    console.log(cart);
 }
+
 
 // Exercise 2
 function cleanCart() {
-    cart = []
-    console.log(cart)
+    document.getElementById("cart_list").innerHTML = ""; 
+    cart = []; 
+    calculateTotal(); 
+    document.getElementById("count_product").textContent = 0;
 }
-
+  
 // Exercise 3
 function calculateTotal() {
     // Calculate total price of the cart using the "cartList" array
