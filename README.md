@@ -46,15 +46,7 @@ Actualització del total amb descomptes aplicats.
 
 Càlcul del preu final amb regles específiques de descompte.
 
-
 <br>
-
-## Introduction
-
-The statement of the exercise is available on the virtual campus.
-
-<br>
-
 
 ## 📌 Autor
 
