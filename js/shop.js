@@ -131,8 +131,8 @@ function printCart() {
         const row = document.createElement("tr"); 
         row.innerHTML = `
             <td>${product.name}</td>
-            <td>${product.quantity}</td>
             <td>$${(product.subtotalWithDiscount ?? product.price * product.quantity).toFixed(2)}</td>
+            <td>${product.quantity}</td>
             <td><button onclick="removeFromCart(${product.id})">❌</button></td>
         `;
 
