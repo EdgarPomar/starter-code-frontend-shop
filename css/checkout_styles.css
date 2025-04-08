@@ -1,0 +1,142 @@
+/* Colores base */
+:root {
+    --primary: #007bff;
+    --dark: #343a40;
+    --light: #f8f9fa;
+    --gray: #6c757d;
+    --shadow: rgba(0, 0, 0, 0.1);
+  }
+  
+  body {
+    background-color: var(--light);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: var(--dark);
+    margin: 0;
+    padding: 0;
+  }
+  
+  .head {
+    font-weight: bold;
+    color: var(--primary);
+    border-bottom: 2px solid var(--primary);
+    padding-bottom: 10px;
+    margin-bottom: 30px;
+  }
+  
+  .bord {
+    background-color: white;
+    border-radius: 15px;
+    padding: 20px;
+    transition: transform 0.3s ease;
+  }
+  
+  .bord:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 12px var(--shadow);
+  }
+  
+  .shadow {
+    box-shadow: 0 4px 12px var(--shadow);
+  }
+  
+  /* Cards de beneficios */
+  .row .col-sm-6 h3 {
+    background-color: var(--light);
+    padding: 15px;
+    border-radius: 10px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    transition: all 0.3s;
+  }
+  
+  .row .col-sm-6 h3 i {
+    color: var(--primary);
+  }
+  
+  .row .col-sm-6 h3:hover {
+    background-color: var(--primary);
+    color: white;
+  }
+  
+  .row .col-sm-6 h3:hover i {
+    color: white;
+  }
+  
+  /* Formulario */
+  .form-label {
+    font-weight: 500;
+  }
+  
+  .form-control {
+    border-radius: 8px;
+    border: 1px solid var(--gray);
+    padding: 10px;
+    transition: border-color 0.2s, box-shadow 0.2s;
+  }
+  
+  .form-control:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.2);
+  }
+  
+  .invalid-feedback {
+    font-size: 0.875rem;
+    color: red;
+  }
+  
+  /* Botón principal */
+  #btn {
+    width: 100%;
+    font-size: 1.1rem;
+    border-radius: 10px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+  }
+  
+  #btn:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Modal */
+  .modal-content {
+    border-radius: 15px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  }
+  
+  .modal-title {
+    font-weight: bold;
+  }
+  
+  .bill {
+    font-size: 1.1rem;
+    color: var(--gray);
+  }
+  
+  ul.list {
+    list-style: none;
+    padding-left: 0;
+    margin-top: 15px;
+  }
+  
+  /* Footer */
+  footer {
+    background-color: var(--dark);
+    color: white;
+    padding: 20px 0;
+  }
+  
+  /* Responsive */
+  @media (max-width: 768px) {
+    .row .col-sm-6 {
+      margin-bottom: 20px;
+    }
+  
+    #btn {
+      font-size: 1rem;
+    }
+  
+    .form {
+      padding: 0 15px;
+    }
+  }
+  
