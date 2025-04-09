@@ -156,15 +156,22 @@ function removeFromCart(id) {
         } else {
             cart.splice(productIndex, 1);
         }
+
         console.log(`Removed one unit of ${product.name} from cart.`);
     } else {
         console.log("Product not found in cart.");
     }
 
-    printCart(); 
-    applyPromotionsCart(); 
-    document.getElementById("count_product").textContent = cart.reduce((acc, p) => acc + p.quantity, 0); 
+    // Si el carrito está vacío después de eliminar, se comporta como cleanCart
+    if (cart.length === 0) {
+        cleanCart();
+    } else {
+        printCart(); 
+        applyPromotionsCart(); 
+        document.getElementById("count_product").textContent = cart.reduce((acc, p) => acc + p.quantity, 0); 
+    }
 }
+
 
 
 function open_modal() {
