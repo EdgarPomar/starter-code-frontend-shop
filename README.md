@@ -3,7 +3,7 @@
 Aquest projecte és una demo inicial d'una aplicació web per a una empresa d'e-commerce. L'objectiu és permetre als clients comprar productes en línia, gestionar el carret de la compra i aplicar promocions sobre el preu final.
 
 ## 📂 Estructura del projecte
-```bash
+
 starter-code-frontend-shop/
 │── css/                # Fulls d'estil per al disseny
 │── images/             # Imatges i recursos multimèdia
@@ -13,7 +13,6 @@ starter-code-frontend-shop/
 │── checkout.html       # Pàgina de pagament
 │── index.html          # Pàgina principal de la botiga
 │── README.md           # Documentació del projecte
-```
 <br>
 
 ## Requerimientos
@@ -46,7 +45,15 @@ Actualització del total amb descomptes aplicats.
 
 Càlcul del preu final amb regles específiques de descompte.
 
+
 <br>
+
+## Introduction
+
+The statement of the exercise is available on the virtual campus.
+
+<br>
+
 
 ## 📌 Autor
 
