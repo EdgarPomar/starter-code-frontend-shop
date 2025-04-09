@@ -76,28 +76,69 @@ let total = 0;
 
 // Exercise 1
 function buy(id) {
-    // 1. Loop for to the array products to get the item to add to cart
-    // 2. Add found product to the cart array
+    const cartProduct = cart.find(p => p.id === id);
+    if (cartProduct) {
+        cartProduct.quantity++;
+    } else {
+        const product = products.find(p => p.id === id);
+        if (product) {
+            cart.push({ ...product, quantity: 1 });
+        }
+    }
+    document.getElementById("count_product").textContent = cart.length;
+    console.log(cart);
 }
+
 
 // Exercise 2
 function cleanCart() {
-
+    document.getElementById("cart_list").innerHTML = ""; 
+    cart = []; 
+    calculateTotal(); 
+    document.getElementById("count_product").textContent = 0;
 }
-
+  
 // Exercise 3
 function calculateTotal() {
-    // Calculate total price of the cart using the "cartList" array
+    let totalPrice = cart.reduce((acc, product) => {
+        let productTotal = product.price * product.quantity;
+        if (product.offer && product.quantity >= product.offer.number) {
+            productTotal *= (1 - product.offer.percent / 100);
+        }
+        return acc + productTotal;
+    }, 0);
+
+    document.getElementById("total_price").textContent = totalPrice.toFixed(2);
 }
+
+
 
 // Exercise 4
 function applyPromotionsCart() {
-    // Apply promotions to each item in the array "cart"
+    cart.forEach(product => {
+        if (product.offer && product.quantity >= product.offer.number) {
+            product.subtotalWithDiscount = product.price * product.quantity * (1 - product.offer.percent / 100);
+        } else {
+            product.subtotalWithDiscount = product.price * product.quantity;
+        }
+    });
 }
-
 // Exercise 5
 function printCart() {
-    // Fill the shopping cart modal manipulating the shopping cart dom
+    const cartList = document.getElementById("cart_list");
+    cartList.innerHTML = ""; 
+    cart.forEach(product => {
+        const row = document.createElement("tr"); 
+        row.innerHTML = `
+            <td>${product.name}</td>
+            <td>$${(product.subtotalWithDiscount ?? product.price * product.quantity).toFixed(2)}</td>
+            <td>${product.quantity}</td>
+            <td><button onclick="removeFromCart(${product.id})">❌</button></td>
+        `;
+
+        cartList.appendChild(row); 
+    });
+    document.getElementById("total_price").textContent = calculateTotal().toFixed(2);
 }
 
 
@@ -105,8 +146,26 @@ function printCart() {
 
 // Exercise 7
 function removeFromCart(id) {
+    const productIndex = cart.findIndex(p => p.id === id);
 
+    if (productIndex !== -1) {
+        const product = cart[productIndex];
+
+        if (product.quantity > 1) {
+            product.quantity--;
+        } else {
+            cart.splice(productIndex, 1);
+        }
+        console.log(`Removed one unit of ${product.name} from cart.`);
+    } else {
+        console.log("Product not found in cart.");
+    }
+
+    printCart(); 
+    applyPromotionsCart(); 
+    document.getElementById("count_product").textContent = cart.reduce((acc, p) => acc + p.quantity, 0); 
 }
+
 
 function open_modal() {
     printCart();
